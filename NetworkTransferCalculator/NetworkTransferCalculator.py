@@ -14,8 +14,8 @@ def CalculateNT():
     # if network_transfer_speed/1000:
     #     # follow up on
 
-    print('The Minimum Network Transfer assuming no overhead or packet loss
-     would be ' + network_transfer_speed + 'Mbps')
+    print('The minimum network transfer assuming no overhead or packet loss +
+     'would be ' + network_transfer_speed + 'Mbps')
 
 def CalculateTT():
     print('Enter File Size')
@@ -25,11 +25,11 @@ def CalculateTT():
 
     true_file_size = FindSize(file_size)
     true_network_transfer_speed = FindTime(network_transfer_speed)
-
     time_for_transfer = true_file_size / true_network_transfer_speed
-
-    print('The time to transfer this size file assuming no overhead or packet
-     loss would be ' + network_transfer_speed + 'Mbps')
+    if time_for_transfer:
+        # follow up on
+    print('The time to transfer this size file assuming no overhead or packet' +
+     'loss would be' + time_for_transfer + 'seconds')
 
 
 def CalculateMT():
@@ -37,11 +37,14 @@ def CalculateMT():
     time = Input()
     print('Enter Network Speed')
     network_transfer_speed = Input()
-
     true_file_size = FindSize(file_size)
     true_time = FindTime(time)
+    max_file_transfer = true_time * true_network_transfer_speed
+    if max_file_transfer/1000:
+        # follow up on
+    print('The maximum size file that can be trasfered assuming no overhead' +
+    'or packet loss would be ' + max_file_transfer + 'GB')
 
-    network_transfer_speed = true_file_size / true_network_transfer_speed
 
 
 
@@ -77,4 +80,4 @@ def main():
         CalculateMT()
         main()
     elif user_input == 4:
-        break
+        quit()

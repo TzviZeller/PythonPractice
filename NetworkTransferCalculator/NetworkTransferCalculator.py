@@ -14,7 +14,7 @@ def CalculateNT():
     # if network_transfer_speed/1000:
     #     # follow up on
 
-    print('The minimum network transfer assuming no overhead or packet loss +
+    print('The minimum network transfer assuming no overhead or packet loss',
      'would be ' + network_transfer_speed + 'Mbps')
 
 def CalculateTT():
@@ -26,9 +26,9 @@ def CalculateTT():
     true_file_size = FindSize(file_size)
     true_network_transfer_speed = FindTime(network_transfer_speed)
     time_for_transfer = true_file_size / true_network_transfer_speed
-    if time_for_transfer:
+    #if time_for_transfer:
         # follow up on
-    print('The time to transfer this size file assuming no overhead or packet' +
+    print('The time to transfer this size file assuming no overhead or packet',
      'loss would be' + time_for_transfer + 'seconds')
 
 
@@ -40,9 +40,9 @@ def CalculateMT():
     true_file_size = FindSize(file_size)
     true_time = FindTime(time)
     max_file_transfer = true_time * true_network_transfer_speed
-    if max_file_transfer/1000:
+    #if max_file_transfer/1000:
         # follow up on
-    print('The maximum size file that can be trasfered assuming no overhead' +
+    print('The maximum size file that can be trasfered assuming no overhead',
     'or packet loss would be ' + max_file_transfer + 'GB')
 
 
@@ -66,11 +66,8 @@ def GetUserInput():
     return input()
 
 def main():
-    if user_input not in range(1,4):
-        print('Value Selected is not recognized')
-        GetUserInput()
-        main()
-    elif user_input == 1:
+    user_input = GetUserInput()
+    if user_input == 1:
         CalculateNT()
         main()
     elif user_input == 2:
@@ -81,3 +78,10 @@ def main():
         main()
     elif user_input == 4:
         quit()
+    else:
+      print('Value selected is not recognized')
+      main()
+
+
+if __name__ == '__main__':
+  main()

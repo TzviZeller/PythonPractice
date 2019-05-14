@@ -7,8 +7,7 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        num2=1
-        for num1 in range(len(nums)):
-            for num2 in range(len(nums)):
-                if num1!=num2 and nums[num1]+nums[num2]==target:
-                        return [num1, num2]
+        for num1 in range(0,len(nums)):
+            for num2 in range(1, len(nums)):
+                if nums[num1]+nums[num2] == target and num1 != num2:
+                    return num1,num2
